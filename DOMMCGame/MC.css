@@ -1,0 +1,29 @@
+.card {
+  position: relative;
+  width: 9rem;
+  height: 12rem;
+  perspective: 30rem;
+}
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  backface-visibility: hidden;
+}
+.front {
+}
+.back {
+  transform: rotateY(180deg);
+}
+
+/* need event listener to flip on 'click' */
+/* .card:hover .front{ transform: rotateY(180deg); }
+  .card:hover .back { transform: rotateY(360deg); } */
+.flipped .front {
+  transform: rotateY(180deg);
+}
+.flipped .back {
+  transform: rotateY(360deg);
+}
