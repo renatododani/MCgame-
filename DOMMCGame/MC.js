@@ -7,6 +7,8 @@
   let cards = [];
   // find reset button
   const resetButton = document.querySelector("#reset");
+  const easyLevelbtn = document.querySelector(".easy");
+  const hardLevelbtn = document.querySelector(".hard");
 
   // function to make cards
   function makeCard(img, cardType) {
@@ -18,7 +20,7 @@
     });
   }
 
-  function resetBoard() {
+  function resetBoardHard() {
     //clear array
     cards = [];
     // clear board in DOM
@@ -44,17 +46,54 @@
     for (let i = 0; i < cards.length; i++) {
       board.innerHTML += `
         <div class="card ${cards[i].type}" data-card="${cards[i].type}">
-          <img class="front" src="MCImgs/Oak-Leaf-Back.jpg" alt="back of card" />
+          <img class="front" src="MCImgs/cardBackgroundDesign.png" alt="back of card" />
           <img class="back" src="${cards[i].imageLink}" alt="serialkiller" />
         </div>   
     `;
     }
   }
-  resetBoard();
 
-  // calls reset board function when reset button is clicked
+  function resetBoardEasy() {
+    //clear array
+    cards = [];
+    // clear board in DOM
+    board.innerHTML = "";
+    //array of card objects being pushed
+    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
+    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
+    makeCard("MCImgs/EdGein.jpg", "gein");
+    makeCard("MCImgs/EdGein.jpg", "gein");
+    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
+    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
+    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
+    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
+    //create an HTML card for every card in the array
+    for (let i = 0; i < cards.length; i++) {
+      board.innerHTML += `
+        <div class="card ${cards[i].type}" data-card="${cards[i].type}">
+        <img class="front" src="MCImgs/cardBackgroundDesign.png" alt="back of card" />
+        <img class="back" src="${cards[i].imageLink}" alt="serialkiller" />
+        </div>   
+    `;
+    }
+  }
+
+  // calls reset board easy function when easy button is clicked
+  easyLevelbtn.addEventListener("click", (event) => {
+    resetBoardEasy()
+  });
+
+   // calls reset board hard function when hard button is clicked
+  hardLevelbtn.addEventListener("click", (event) => {
+    resetBoardHard();
+  })
+
+  // clears the board when reset button is clicked
   resetButton.addEventListener("click", (event) => {
-    resetBoard();
+    //clear array
+    cards = [];
+    // clear board in DOM
+    board.innerHTML = "";
   });
 
   board.addEventListener("click", (event) => {
