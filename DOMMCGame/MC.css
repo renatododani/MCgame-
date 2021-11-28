@@ -1,8 +1,51 @@
+body {
+  margin: 0 ;
+  height: 100vh;
+  
+}
+
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: #171717;
+}
+
+#gameboard {
+  display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 50%;
+    padding: 0;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+nav {
+  background-color: #444444;
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  color: #EDEDED;
+}
+
+button {
+  background-color: #DA0037;
+  color: #EDEDED;
+  height: 37px;
+  margin-top: 20px;
+}
+
 .card {
+  margin-bottom: 10px;
   position: relative;
-  width: 9rem;
-  height: 12rem;
+  width: 8rem;
+  height: 10.5rem;
   perspective: 30rem;
+  box-shadow: 2px 2px whitesmoke;
 }
 .front,
 .back {
