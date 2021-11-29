@@ -10,6 +10,7 @@ main {
   display: flex;
   justify-content: center;
   background-color: #171717;
+  background-image: url("MCImgs/background.jpg");
 }
 
 #gameboard {
