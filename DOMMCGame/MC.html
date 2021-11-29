@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="MC.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="MC.css" />
-</head>
+  <body>
+    <nav>
+      <h1>Flip Card Game</h1>
+      <div>
+        <button class="start">Start Game</button>
+        <button class="level easy">Easy</button>
+        <button class="level hard">Hard</button>
+        <button type="button" id="reset">Reset</button>
+      </div>
+    </nav>
 
-<body>
-  <nav>
-    <h1>Flip Card Game</h1>
-    <div>
-      <button class="level easy">Easy</button>
-      <button class="level hard">Hard</button>
-      <button type="button" id="reset">Reset</button>
-    </div>
+    <main>
+      <div id="gameboard"></div>
+    </main>
 
-  </nav>
-
-  <main>
-    <div id="gameboard"></div>
-  </main>
-
-  <script src="MC.js"></script>
-</body>
-
+    <script src="MC.js"></script>
+  </body>
 </html>

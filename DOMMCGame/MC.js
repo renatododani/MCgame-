@@ -30,27 +30,27 @@
     // clear board in DOM
     board.innerHTML = "";
     //array of card objects being pushed
-      makeCard("MCImgs/berkowitz.jpg", "berkowitz");
-      makeCard("MCImgs/berkowitz.jpg", "berkowitz");
-      makeCard("MCImgs/bundy.jpg", "bundy");
-      makeCard("MCImgs/bundy.jpg", "bundy");
-      makeCard("MCImgs/dahmer.jpg", "dahmer");
-      makeCard("MCImgs/dahmer.jpg", "dahmer");
-      makeCard("MCImgs/fish.jpg", "fish");
-      makeCard("MCImgs/fish.jpg", "fish");
-      makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
-      makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
-      makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
-      makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
-      makeCard("MCImgs/bundy.jpg", "bundy");
-      makeCard("MCImgs/bundy.jpg", "bundy");
-      makeCard("MCImgs/rader.jpg", "rader");
-      makeCard("MCImgs/rader.jpg", "rader");
+    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
+    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
+    makeCard("MCImgs/EdGein.jpg", "gein");
+    makeCard("MCImgs/EdGein.jpg", "gein");
+    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
+    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
+    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
+    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
+    makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
+    makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
+    makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
+    makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
+    makeCard("MCImgs/TedBundy.jpg", "bundy");
+    makeCard("MCImgs/TedBundy.jpg", "bundy");
+    makeCard("MCImgs/DennisRader.jpg", "rader");
+    makeCard("MCImgs/DennisRader.jpg", "rader");
     //create an HTML card for every card in the array
     for (let i = 0; i < cards.length; i++) {
       board.innerHTML += `
         <div class="card ${cards[i].type}" data-card="${cards[i].type}">
-          <img class="front" src="MCImgs/cards.jpg" alt="back of card" />
+          <img class="front" src="MCImgs/cardBackgroundDesign.png" alt="back of card" />
           <img class="back" src="${cards[i].imageLink}" alt="serialkiller" />
         </div>   
     `;
@@ -71,8 +71,8 @@
     makeCard("MCImgs/EdGein.jpg", "gein");
     makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
     makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
-    makeCard("MCImgs/kemper.jpg", "kemper");
-    makeCard("MCImgs/kemper.jpg", "kemper");
+    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
+    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
     //create an HTML card for every card in the array
     for (let i = 0; i < cards.length; i++) {
       board.innerHTML += `
