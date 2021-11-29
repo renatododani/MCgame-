@@ -5,6 +5,8 @@
   let lastClicked;
   // initialize "cards" array for function to push to
   let cards = [];
+  // initialize "level" variable to track selected level
+  let level;
   // find reset button
   const resetButton = document.querySelector("#reset");
   const easyLevelbtn = document.querySelector(".easy");
@@ -21,6 +23,8 @@
   }
 
   function resetBoardHard() {
+    //set level to hard
+    level = "hard";
     //clear array
     cards = [];
     // clear board in DOM
@@ -54,6 +58,8 @@
   }
 
   function resetBoardEasy() {
+    //set level to easy
+    level = "easy";
     //clear array
     cards = [];
     // clear board in DOM
@@ -80,13 +86,13 @@
 
   // calls reset board easy function when easy button is clicked
   easyLevelbtn.addEventListener("click", (event) => {
-    resetBoardEasy()
+    resetBoardEasy();
   });
 
-   // calls reset board hard function when hard button is clicked
+  // calls reset board hard function when hard button is clicked
   hardLevelbtn.addEventListener("click", (event) => {
     resetBoardHard();
-  })
+  });
 
   // clears the board when reset button is clicked
   resetButton.addEventListener("click", (event) => {
@@ -94,6 +100,11 @@
     cards = [];
     // clear board in DOM
     board.innerHTML = "";
+    if (level === "easy") {
+      resetBoardEasy();
+    } else {
+      resetBoardHard();
+    }
   });
 
   board.addEventListener("click", (event) => {
