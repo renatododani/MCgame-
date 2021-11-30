@@ -11,6 +11,36 @@
   const resetButton = document.querySelector("#reset");
   const easyLevelbtn = document.querySelector(".easy");
   const hardLevelbtn = document.querySelector(".hard");
+  //find start button
+  const startButton = document.querySelector(".start");
+  // //declaring timer variables
+  // let minutes = 0;
+  // let seconds = 0;
+  // let cron;
+  // //function to start timer
+  // document.span.start.onclick = () => startTimer();
+  // document.span.reset.onclick = () => resetTimer();
+  // function startTimer() {
+  //   cron = setInterval(() => {
+  //     timer();
+  //   }, 10);
+  // }
+
+  // function resetTimer() {
+  //   minute = 0;
+  //   second = 0;
+  //   document.getElementById("minute").innerText = "00";
+  //   document.getElementById("second").innerText = "00";
+  // }
+
+  // function timer() {
+  //   if (second == 60) {
+  //     second = 0;
+  //     minute++;
+  //   }
+  //   document.getElementById("minute").innerText = returnData(minute);
+  //   document.getElementById("second").innerText = returnData(second);
+  // }
 
   // function to make cards
   function makeCard(img, cardType) {
@@ -21,6 +51,13 @@
       type: cardType,
     });
   }
+
+  // (function shuffle() {
+  //   card.forEach((card) => {
+  //     let randomPosition = Math.floor(Math.random() * 12);
+  //     card.style.order = randomPosition;
+  //   });
+  // })();
 
   function resetBoardHard() {
     //set level to hard
@@ -84,6 +121,22 @@
     }
   }
 
+  startButton.addEventListener("click", (event) => {
+    //will start timer
+    let startTimer = setInterval(
+      (function () {
+        var start = Date.now();
+        var textNode = document.createTextNode("0");
+        document.getElementById("seconds").appendChild(textNode);
+        return function () {
+          textNode.data = Math.floor((Date.now() - start) / 1000);
+        };
+      })(),
+      1000
+    );
+    //some action when timer stops/board is completed
+  });
+
   // calls reset board easy function when easy button is clicked
   easyLevelbtn.addEventListener("click", (event) => {
     resetBoardEasy();
@@ -102,8 +155,13 @@
     board.innerHTML = "";
     if (level === "easy") {
       resetBoardEasy();
+      // resetTimer();
     } else {
       resetBoardHard();
+      // resetTimer();
+    }
+    function clearTimer() {
+      clearInterval(startTimer);
     }
   });
 
