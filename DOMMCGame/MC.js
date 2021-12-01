@@ -46,18 +46,23 @@
   function makeCard(img, cardType) {
     cards.push({
       imageLink: img,
-      id: null,
       isClicked: false,
       type: cardType,
+      sortOrder: Math.floor(Math.random() * (level === "hard" ? 16 : 8)),
     });
   }
 
-  // (function shuffle() {
-  //   card.forEach((card) => {
-  //     let randomPosition = Math.floor(Math.random() * 12);
-  //     card.style.order = randomPosition;
-  //   });
-  // })();
+  function creatHTMLCards() {
+    //create an HTML card for every card in the array
+    for (let i = 0; i < cards.length; i++) {
+      board.innerHTML += `
+      <div class="card ${cards[i].type}" data-card="${cards[i].type}">
+      <img class="front" src="MCImgs/cardBackgroundDesign.png" alt="back of card" />
+      <img class="back" src="${cards[i].imageLink}" alt="serialkiller" />
+      </div>   
+  `;
+    }
+  }
 
   function resetBoardHard() {
     //set level to hard
@@ -83,15 +88,11 @@
     makeCard("MCImgs/TedBundy.jpg", "bundy");
     makeCard("MCImgs/DennisRader.jpg", "rader");
     makeCard("MCImgs/DennisRader.jpg", "rader");
-    //create an HTML card for every card in the array
-    for (let i = 0; i < cards.length; i++) {
-      board.innerHTML += `
-        <div class="card ${cards[i].type}" data-card="${cards[i].type}">
-          <img class="front" src="MCImgs/cardBackgroundDesign.png" alt="back of card" />
-          <img class="back" src="${cards[i].imageLink}" alt="serialkiller" />
-        </div>   
-    `;
-    }
+    //randomize cards in the array by accesing random sortOrder property
+    cards.sort((a, b) => {
+      return a.sortOrder - b.sortOrder;
+    });
+    creatHTMLCards();
   }
 
   function resetBoardEasy() {
@@ -110,15 +111,11 @@
     makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
     makeCard("MCImgs/JoeMetheny.jpg", "metheny");
     makeCard("MCImgs/JoeMetheny.jpg", "metheny");
-    //create an HTML card for every card in the array
-    for (let i = 0; i < cards.length; i++) {
-      board.innerHTML += `
-        <div class="card ${cards[i].type}" data-card="${cards[i].type}">
-        <img class="front" src="MCImgs/cardBackgroundDesign.png" alt="back of card" />
-        <img class="back" src="${cards[i].imageLink}" alt="serialkiller" />
-        </div>   
-    `;
-    }
+    //randomize cards in the array by accesing random sortOrder property
+    cards.sort(function (a, b) {
+      return a.sortOrder - b.sortOrder;
+    });
+    creatHTMLCards();
   }
 
   startButton.addEventListener("click", (event) => {
