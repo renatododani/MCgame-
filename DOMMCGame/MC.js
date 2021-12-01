@@ -72,22 +72,22 @@
     // clear board in DOM
     board.innerHTML = "";
     //array of card objects being pushed
-    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
-    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
-    makeCard("MCImgs/EdGein.jpg", "gein");
-    makeCard("MCImgs/EdGein.jpg", "gein");
-    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
-    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
-    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
-    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
-    makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
-    makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
-    makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
-    makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
-    makeCard("MCImgs/TedBundy.jpg", "bundy");
-    makeCard("MCImgs/TedBundy.jpg", "bundy");
-    makeCard("MCImgs/DennisRader.jpg", "rader");
-    makeCard("MCImgs/DennisRader.jpg", "rader");
+      makeCard("MCImgs/berkowitz.jpg", "berkowitz");
+      makeCard("MCImgs/berkowitz.jpg", "berkowitz");
+      makeCard("MCImgs/bundy.jpg", "bundy");
+      makeCard("MCImgs/bundy.jpg", "bundy");
+      makeCard("MCImgs/dahmer.jpg", "dahmer");
+      makeCard("MCImgs/dahmer.jpg", "dahmer");
+      makeCard("MCImgs/fish.jpg", "fish");
+      makeCard("MCImgs/fish.jpg", "fish");
+      makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
+      makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
+      makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
+      makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
+      makeCard("MCImgs/bundy.jpg", "bundy");
+      makeCard("MCImgs/bundy.jpg", "bundy");
+      makeCard("MCImgs/rader.jpg", "rader");
+      makeCard("MCImgs/rader.jpg", "rader");
     //randomize cards in the array by accesing random sortOrder property
     cards.sort((a, b) => {
       return a.sortOrder - b.sortOrder;
@@ -103,14 +103,14 @@
     // clear board in DOM
     board.innerHTML = "";
     //array of card objects being pushed
-    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
-    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
-    makeCard("MCImgs/EdGein.jpg", "gein");
-    makeCard("MCImgs/EdGein.jpg", "gein");
-    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
-    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
-    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
-    makeCard("MCImgs/JoeMetheny.jpg", "metheny");
+      makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
+      makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
+      makeCard("MCImgs/EdGein.jpg", "gein");
+      makeCard("MCImgs/EdGein.jpg", "gein");
+      makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
+      makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
+      makeCard("MCImgs/kemper.jpg", "kemper");
+      makeCard("MCImgs/kemper.jpg", "kemper");
     //randomize cards in the array by accesing random sortOrder property
     cards.sort(function (a, b) {
       return a.sortOrder - b.sortOrder;
