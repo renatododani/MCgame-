@@ -32,10 +32,12 @@
     //create an HTML card for every card in the array
     for (let i = 0; i < cards.length; i++) {
       board.innerHTML += `
-      <div class="card ${cards[i].type}" data-card="${cards[i].type}">
-      <img class="front" src="MCImgs/cardBackgroundDesign.png" alt="back of card" />
-      <img class="back" src="${cards[i].imageLink}" alt="serialkiller" />
-      </div>   
+      <div>
+        <div class="card ${cards[i].type}" data-card="${cards[i].type}">
+          <img class="front" src="MCImgs/cardBackgroundDesign.png" alt="back of card" />
+          <img class="back" src="${cards[i].imageLink}" alt="serialkiller" />
+        </div>
+      </div>
   `;
     }
   }
