@@ -9,38 +9,14 @@
   let level;
   // find reset button
   const resetButton = document.querySelector("#reset");
-  const easyLevelbtn = document.querySelector(".easy");
-  const hardLevelbtn = document.querySelector(".hard");
+  const easyLevelbtn = document.querySelector("#easy");
+  const hardLevelbtn = document.querySelector("#hard");
   //find start button
   const startButton = document.querySelector(".start");
-  // //declaring timer variables
-  // let minutes = 0;
-  // let seconds = 0;
-  // let cron;
-  // //function to start timer
-  // document.span.start.onclick = () => startTimer();
-  // document.span.reset.onclick = () => resetTimer();
-  // function startTimer() {
-  //   cron = setInterval(() => {
-  //     timer();
-  //   }, 10);
-  // }
-
-  // function resetTimer() {
-  //   minute = 0;
-  //   second = 0;
-  //   document.getElementById("minute").innerText = "00";
-  //   document.getElementById("second").innerText = "00";
-  // }
-
-  // function timer() {
-  //   if (second == 60) {
-  //     second = 0;
-  //     minute++;
-  //   }
-  //   document.getElementById("minute").innerText = returnData(minute);
-  //   document.getElementById("second").innerText = returnData(second);
-  // }
+  //find menu
+  const levelMenu = document.querySelector(".menu");
+  //find header buttons
+  const headerButtons = document.querySelector(".header-buttons");
 
   // function to make cards
   function makeCard(img, cardType) {
@@ -67,27 +43,33 @@
   function resetBoardHard() {
     //set level to hard
     level = "hard";
+    //hide menu
+    levelMenu.style.display = "none";
+    //show game board on button click
+    board.style.display = "grid";
+    //show header buttons on click
+    headerButtons.style.display = "initial";
     //clear array
     cards = [];
     // clear board in DOM
     board.innerHTML = "";
     //array of card objects being pushed
-      makeCard("MCImgs/berkowitz.jpg", "berkowitz");
-      makeCard("MCImgs/berkowitz.jpg", "berkowitz");
-      makeCard("MCImgs/bundy.jpg", "bundy");
-      makeCard("MCImgs/bundy.jpg", "bundy");
-      makeCard("MCImgs/dahmer.jpg", "dahmer");
-      makeCard("MCImgs/dahmer.jpg", "dahmer");
-      makeCard("MCImgs/fish.jpg", "fish");
-      makeCard("MCImgs/fish.jpg", "fish");
-      makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
-      makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
-      makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
-      makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
-      makeCard("MCImgs/bundy.jpg", "bundy");
-      makeCard("MCImgs/bundy.jpg", "bundy");
-      makeCard("MCImgs/rader.jpg", "rader");
-      makeCard("MCImgs/rader.jpg", "rader");
+    makeCard("MCImgs/berkowitz.jpg", "berkowitz");
+    makeCard("MCImgs/berkowitz.jpg", "berkowitz");
+    makeCard("MCImgs/bundy.jpg", "bundy");
+    makeCard("MCImgs/bundy.jpg", "bundy");
+    makeCard("MCImgs/dahmer.jpg", "dahmer");
+    makeCard("MCImgs/dahmer.jpg", "dahmer");
+    makeCard("MCImgs/fish.jpg", "fish");
+    makeCard("MCImgs/fish.jpg", "fish");
+    makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
+    makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
+    makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
+    makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
+    makeCard("MCImgs/bundy.jpg", "bundy");
+    makeCard("MCImgs/bundy.jpg", "bundy");
+    makeCard("MCImgs/rader.jpg", "rader");
+    makeCard("MCImgs/rader.jpg", "rader");
     //randomize cards in the array by accesing random sortOrder property
     cards.sort((a, b) => {
       return a.sortOrder - b.sortOrder;
@@ -98,19 +80,25 @@
   function resetBoardEasy() {
     //set level to easy
     level = "easy";
+    //hide menu
+    levelMenu.style.display = "none";
+    //display game board on click
+    board.style.display = "grid";
+    //show header buttons on click
+    headerButtons.style.display = "initial";
     //clear array
     cards = [];
     // clear board in DOM
     board.innerHTML = "";
     //array of card objects being pushed
-      makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
-      makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
-      makeCard("MCImgs/EdGein.jpg", "gein");
-      makeCard("MCImgs/EdGein.jpg", "gein");
-      makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
-      makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
-      makeCard("MCImgs/kemper.jpg", "kemper");
-      makeCard("MCImgs/kemper.jpg", "kemper");
+    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
+    makeCard("MCImgs/AileenWuornos.jpg", "wuornos");
+    makeCard("MCImgs/EdGein.jpg", "gein");
+    makeCard("MCImgs/EdGein.jpg", "gein");
+    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
+    makeCard("MCImgs/GaryRidgeway.jpg", "ridgeway");
+    makeCard("MCImgs/kemper.jpg", "kemper");
+    makeCard("MCImgs/kemper.jpg", "kemper");
     //randomize cards in the array by accesing random sortOrder property
     cards.sort(function (a, b) {
       return a.sortOrder - b.sortOrder;

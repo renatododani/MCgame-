@@ -5,18 +5,25 @@
 body {
   margin: 0;
   height: 100vh;
+  width: 100vw;
+}
+
+div.header-buttons {
+  display: none;
 }
 
 main {
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #171717;
   background-image: url("MCImgs/background.jpg");
 }
 
 #gameboard {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(4, 1fr);
   width: 50%;
   padding: 0;
@@ -24,11 +31,12 @@ main {
 }
 
 nav {
-  background-color: #444444;
+  background-color: black;
   height: 8vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
@@ -72,4 +80,20 @@ button {
 }
 .flipped .back {
   transform: rotateY(360deg);
+}
+
+div.menu {
+  height: 45%;
+  width: 45%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button.level {
+  padding: 1%;
+  background-color: red;
+  color: black;
 }
