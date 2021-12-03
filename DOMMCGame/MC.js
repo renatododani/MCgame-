@@ -7,7 +7,6 @@
   let cards = [];
   // initialize "level" variable to track selected level
   let level;
-  //
   let startTimer = null;
   let count = 0;
   const resetButton = document.querySelector("#reset");
@@ -66,7 +65,7 @@
     makeCard("MCImgs/dahmer.jpg", "dahmer");
     makeCard("MCImgs/fish.jpg", "fish");
     makeCard("MCImgs/fish.jpg", "fish");
-    makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
+    makeCard("MCImgs/RichardRamirez.jpg", "ramirez"); //removes after only 1 is flipped
     makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
     makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
     makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
@@ -112,10 +111,12 @@
 
   startButton.addEventListener("click", (event) => {
     //will start timer
-    startTimer = setInterval(function () {
-      seconds.innerHTML = count;
-      count++;
-    }, 1000);
+    if (count === 0) {
+      startTimer = setInterval(function () {
+        seconds.innerHTML = count;
+        count++;
+      }, 1000);
+    }
   });
 
   // will stop timer
@@ -173,6 +174,7 @@
           //remove cards from UI
           // querySelectorAll creates an array of cards that will be removed from the array
           let cardsToRemove = document.querySelectorAll(`.${lastClicked}`);
+          console.log(cardsToRemove);
           // remove each card from cardsToRemove array
           for (card of cardsToRemove) {
             card.remove();
