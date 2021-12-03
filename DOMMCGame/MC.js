@@ -7,7 +7,9 @@
   let cards = [];
   // initialize "level" variable to track selected level
   let level;
-  // find reset button
+  // 
+  let startTimer = null;
+  let count = 0;
   const resetButton = document.querySelector("#reset");
   const easyLevelbtn = document.querySelector("#easy");
   const hardLevelbtn = document.querySelector("#hard");
@@ -110,19 +112,19 @@
 
   startButton.addEventListener("click", (event) => {
     //will start timer
-    let startTimer = setInterval(
-      (function () {
-        var start = Date.now();
-        var textNode = document.createTextNode("0");
-        document.getElementById("seconds").appendChild(textNode);
-        return function () {
-          textNode.data = Math.floor((Date.now() - start) / 1000);
-        };
-      })(),
-      1000
+    startTimer = setInterval(
+      function () {
+        seconds.innerHTML = count;
+        count++;
+      }, 1000
     );
-    //some action when timer stops/board is completed
   });
+
+  // will stop timer 
+  function clearTimer() {
+    clearInterval(startTimer);
+    count === 0;
+  };
 
   // calls reset board easy function when easy button is clicked
   easyLevelbtn.addEventListener("click", (event) => {
@@ -147,12 +149,15 @@
       resetBoardHard();
       // resetTimer();
     }
-    function clearTimer() {
-      clearInterval(startTimer);
-    }
+    clearTimer();
   });
 
   board.addEventListener("click", (event) => {
+    if (cards.length === 0) {
+      clearTimer();
+      window.alert('Game Over')
+    }
+
     //check if a card is clicked
     if (event.target.className === "front") {
       //store data-card value of clicked card in a variable
