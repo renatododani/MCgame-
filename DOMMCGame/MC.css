@@ -37,10 +37,15 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 2em;
 }
 
 h1 {
   color: #ededed;
+}
+
+h3 {
+  padding-right: 3.5em;
 }
 
 button {
@@ -96,4 +101,8 @@ button.level {
   padding: 1%;
   background-color: red;
   color: black;
+}
+
+@media screen and (min-width: 468px) {
+
 }
