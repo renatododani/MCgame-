@@ -28,6 +28,7 @@ main {
   width: 50%;
   padding: 0;
   grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px;
 }
 
 nav {
@@ -87,19 +88,29 @@ button {
 }
 
 div.menu {
-  height: 45%;
+  height: 35%;
   width: 45%;
   background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 28%;
 }
 
 button.level {
+  width: 50%;
   padding: 1%;
   background-color: rgb(134, 27, 27);
 }
 
 @media screen and (min-width: 468px) {
+  div.menu {
+    width: 35%;
+    margin-bottom: 12%;
+  }
+
+  button.level {
+    width: 10vw;
+  }
 }

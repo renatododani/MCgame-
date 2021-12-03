@@ -7,7 +7,7 @@
   let cards = [];
   // initialize "level" variable to track selected level
   let level;
-  // 
+  //
   let startTimer = null;
   let count = 0;
   const resetButton = document.querySelector("#reset");
@@ -70,8 +70,8 @@
     makeCard("MCImgs/RichardRamirez.jpg", "ramirez");
     makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
     makeCard("MCImgs/RodneyAlcala.jpg", "alcala");
-    makeCard("MCImgs/bundy.jpg", "bundy");
-    makeCard("MCImgs/bundy.jpg", "bundy");
+    makeCard("MCImgs/gacy.jpg", "gacy");
+    makeCard("MCImgs/gacy.jpg", "gacy");
     makeCard("MCImgs/rader.jpg", "rader");
     makeCard("MCImgs/rader.jpg", "rader");
     //randomize cards in the array by accesing random sortOrder property
@@ -112,19 +112,17 @@
 
   startButton.addEventListener("click", (event) => {
     //will start timer
-    startTimer = setInterval(
-      function () {
-        seconds.innerHTML = count;
-        count++;
-      }, 1000
-    );
+    startTimer = setInterval(function () {
+      seconds.innerHTML = count;
+      count++;
+    }, 1000);
   });
 
-  // will stop timer 
+  // will stop timer
   function clearTimer() {
     clearInterval(startTimer);
     count === 0;
-  };
+  }
 
   // calls reset board easy function when easy button is clicked
   easyLevelbtn.addEventListener("click", (event) => {
@@ -155,7 +153,7 @@
   board.addEventListener("click", (event) => {
     if (cards.length === 0) {
       clearTimer();
-      window.alert('Game Over')
+      window.alert("Game Over");
     }
 
     //check if a card is clicked
