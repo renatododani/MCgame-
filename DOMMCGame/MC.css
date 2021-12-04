@@ -2,6 +2,7 @@
   font-family: "Creepster";
   color: white;
 }
+
 body {
   margin: 0;
   height: 100vh;
@@ -63,6 +64,7 @@ button {
   height: 10.5rem;
   perspective: 30rem;
 }
+
 .front,
 .back {
   position: absolute;
@@ -72,8 +74,9 @@ button {
   /* maybe set back to 1s */
   backface-visibility: hidden;
 }
-.front {
-}
+
+.front {}
+
 .back {
   transform: rotateY(180deg);
 }
@@ -84,6 +87,7 @@ button {
 .flipped .front {
   transform: rotateY(180deg);
 }
+
 .flipped .back {
   transform: rotateY(360deg);
 }
@@ -114,4 +118,31 @@ button.level {
   button.level {
     width: 10vw;
   }
+}
+
+#game-over {
+
+  height: 35%;
+  width: 45%;
+  background-color: black;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  align-items: center;
+  margin-bottom: 28%;
+  display: none;
+}
+
+#gameOverMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+#gameOverText {
+  padding-left: 100px;
 }
