@@ -68,7 +68,8 @@ button {
   position: absolute;
   width: 100%;
   height: 100%;
-  transition: transform 1s;
+  transition: transform 0.5s;
+  /* maybe set back to 1s */
   backface-visibility: hidden;
 }
 .front {

@@ -1,8 +1,9 @@
 (function () {
   //find game board
   const board = document.querySelector("#gameboard");
-  // declare lastClicked as a variable
-  let lastClicked;
+  // declare previouslyClickedCard as a variable
+  let previouslyClickedCard = null;
+  let newClickedCard = null;
   // initialize "cards" array for function to push to
   let cards = [];
   // initialize "level" variable to track selected level
@@ -159,36 +160,52 @@
 
     //check if a card is clicked
     if (event.target.className === "front") {
+      console.log("flip started");
       //store data-card value of clicked card in a variable
-      let newClickedCard = event.target.parentNode.dataset.card;
+      newClickedCard = event.target.parentNode.dataset.card;
 
       // add class "flipped" to div that holds clicked img
       event.target.parentNode.classList.add("flipped");
 
-      // if lastClicked is not undefined and the data-card value of newClicked and lastClicked are the same
-      if (lastClicked !== undefined && newClickedCard === lastClicked) {
+      console.log(previouslyClickedCard, "previously");
+      console.log(newClickedCard, "newly");
+      //if the clicked cards match
+      if (
+        previouslyClickedCard !== null &&
+        newClickedCard === previouslyClickedCard
+      ) {
+        console.log("match");
         // call set timeout, which delays the running the card removal by 2 seconds
         setTimeout(function () {
           //remove cards from array
-          cards = cards.filter((card) => card.type !== lastClicked);
+          cards = cards.filter((card) => card.type !== newClickedCard);
           //remove cards from UI
           // querySelectorAll creates an array of cards that will be removed from the array
-          let cardsToRemove = document.querySelectorAll(`.${lastClicked}`);
+          let cardsToRemove = document.querySelectorAll(`.${newClickedCard}`);
           console.log(cardsToRemove);
           // remove each card from cardsToRemove array
           for (card of cardsToRemove) {
             card.remove();
           }
-        }, 2000);
-      } else {
+          previouslyClickedCard = null;
+          newClickedCard = null;
+        }, 1000); //maybe set back
+      }
+
+      if (previouslyClickedCard === null) {
+        previouslyClickedCard = newClickedCard;
+      }
+
+      if (previouslyClickedCard !== null) {
         // if card type values do not match, remove class flipped from cards after 3 sec
         setTimeout(function () {
           event.target.parentNode.classList.remove("flipped");
+          previouslyClickedCard = null;
+          newClickedCard = null;
         }, 3000);
       }
-      //make me undefined or newClicked, depending on match or not
 
-      lastClicked = newClickedCard;
+      console.log("reached end");
     }
   });
 })();
