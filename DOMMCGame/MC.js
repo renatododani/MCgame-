@@ -10,6 +10,7 @@
   let level;
   let startTimer = null;
   let count = 0;
+  let isEasy = false;
   const resetButton = document.querySelector("#reset");
   const easyLevelbtn = document.querySelector("#easy");
   const hardLevelbtn = document.querySelector("#hard");
@@ -19,6 +20,9 @@
   const levelMenu = document.querySelector(".menu");
   //find header buttons
   const headerButtons = document.querySelector(".header-buttons");
+  const seconds = document.querySelector('#seconds')
+  const backToMenu = document.querySelector('#returnBack');
+
 
   // function to make cards
   function makeCard(img, cardType) {
@@ -185,16 +189,27 @@
           console.log(cardsToRemove);
           // remove each card from cardsToRemove array
           for (card of cardsToRemove) {
+            allFlippedCards.push(card);
             card.remove();
-          }
+            if (allFlippedCards.length === 8 && isEasy === true) {
+              console.log(allFlippedCards.length);
+              gameOver.style.display = 'flex';
+              seconds.innerHTML = count;
+
+            } else if (allFlippedCards.length === 16 && isEasy === false) {
+              console.log(allFlippedCards.length);
+              gameOver.style.display = 'flex';
+              seconds.innerHTML = count;
+            };
+          };
           previouslyClickedCard = null;
           newClickedCard = null;
         }, 1000); //maybe set back
       }
 
-      if (previouslyClickedCard === null) {
+      // if (previouslyClickedCard === null) {
         previouslyClickedCard = newClickedCard;
-      }
+      // }
 
       if (previouslyClickedCard !== null) {
         // if card type values do not match, remove class flipped from cards after 3 sec
@@ -208,4 +223,12 @@
       console.log("reached end");
     }
   });
+  backToMenu.addEventListener('click', () => {
+    gameOver.style.display = 'none';
+    levelMenu.style.display = 'flex';
+    levelMenu.style.flexDirection = 'column';
+    levelMenu.style.justifyContent = 'center';
+    levelMenu.style.alignItems = 'center';
+    levelMenu.style.marginLeft= '30%';
+})
 })();
