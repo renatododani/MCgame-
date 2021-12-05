@@ -11,6 +11,7 @@
   let startTimer = null;
   let count = 0;
   let isEasy = false;
+  let allFlippedCards = [];
   const resetButton = document.querySelector("#reset");
   const easyLevelbtn = document.querySelector("#easy");
   const hardLevelbtn = document.querySelector("#hard");
@@ -20,9 +21,8 @@
   const levelMenu = document.querySelector(".menu");
   //find header buttons
   const headerButtons = document.querySelector(".header-buttons");
-  const seconds = document.querySelector('#seconds')
-  const backToMenu = document.querySelector('#returnBack');
-
+  const seconds = document.querySelector("#seconds");
+  const backToMenu = document.querySelector("#returnBack");
 
   // function to make cards
   function makeCard(img, cardType) {
@@ -156,7 +156,7 @@
     clearTimer();
   });
 
-  board.addEventListener("click", (event) => {
+  function cardClickListener() {
     if (cards.length === 0) {
       clearTimer();
       window.alert("Game Over");
@@ -164,71 +164,77 @@
 
     //check if a card is clicked
     if (event.target.className === "front") {
-      console.log("flip started");
       //store data-card value of clicked card in a variable
       newClickedCard = event.target.parentNode.dataset.card;
+      console.log(newClickedCard);
 
       // add class "flipped" to div that holds clicked img
       event.target.parentNode.classList.add("flipped");
 
-      console.log(previouslyClickedCard, "previously");
-      console.log(newClickedCard, "newly");
       //if the clicked cards match
       if (
         previouslyClickedCard !== null &&
         newClickedCard === previouslyClickedCard
       ) {
+        board.removeEventListener("click", cardClickListener);
         console.log("match");
-        // call set timeout, which delays the running the card removal by 2 seconds
         setTimeout(function () {
           //remove cards from array
           cards = cards.filter((card) => card.type !== newClickedCard);
           //remove cards from UI
           // querySelectorAll creates an array of cards that will be removed from the array
           let cardsToRemove = document.querySelectorAll(`.${newClickedCard}`);
-          console.log(cardsToRemove);
           // remove each card from cardsToRemove array
           for (card of cardsToRemove) {
+            console.log(cardsToRemove);
             allFlippedCards.push(card);
             card.remove();
             if (allFlippedCards.length === 8 && isEasy === true) {
               console.log(allFlippedCards.length);
-              gameOver.style.display = 'flex';
+              gameOver.style.display = "flex";
               seconds.innerHTML = count;
-
             } else if (allFlippedCards.length === 16 && isEasy === false) {
               console.log(allFlippedCards.length);
-              gameOver.style.display = 'flex';
+              gameOver.style.display = "flex";
               seconds.innerHTML = count;
-            };
-          };
+            }
+          }
           previouslyClickedCard = null;
           newClickedCard = null;
-        }, 1000); //maybe set back
+          board.addEventListener("click", cardClickListener);
+        }, 1500);
       }
-
-      // if (previouslyClickedCard === null) {
-        previouslyClickedCard = newClickedCard;
-      // }
-
-      if (previouslyClickedCard !== null) {
-        // if card type values do not match, remove class flipped from cards after 3 sec
+      //if no match and two clicks
+      else if (previouslyClickedCard !== null) {
+        board.removeEventListener("click", cardClickListener);
         setTimeout(function () {
-          event.target.parentNode.classList.remove("flipped");
+          // if card type values do not match, remove class flipped from cards
+          let flippedCards = document.querySelectorAll(".flipped");
+
+          for (card of flippedCards) {
+            card.classList.remove("flipped");
+          }
           previouslyClickedCard = null;
           newClickedCard = null;
-        }, 3000);
+          board.addEventListener("click", cardClickListener);
+        }, 1500);
       }
-
-      console.log("reached end");
+      if (previouslyClickedCard === null) {
+        previouslyClickedCard = newClickedCard;
+      }
     }
+  }
+
+  board.addEventListener("click", cardClickListener);
+
+  //  board.addEventListener("click", clickListener);
+
+  backToMenu.addEventListener("click", () => {
+    gameOver.style.display = "none";
+    levelMenu.style.display = "flex";
+    levelMenu.style.flexDirection = "column";
+    levelMenu.style.justifyContent = "center";
+    levelMenu.style.alignItems = "center";
+    levelMenu.style.marginLeft = "30%";
   });
-  backToMenu.addEventListener('click', () => {
-    gameOver.style.display = 'none';
-    levelMenu.style.display = 'flex';
-    levelMenu.style.flexDirection = 'column';
-    levelMenu.style.justifyContent = 'center';
-    levelMenu.style.alignItems = 'center';
-    levelMenu.style.marginLeft= '30%';
-})
 })();

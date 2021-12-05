@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="MC.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Creepster&family=Kanit:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="MC.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Kanit:wght@300&display=swap" rel="stylesheet" />
-</head>
-
-<body>
-  <nav>
-    <h1>Flip Card Game</h1>
-    <div class="header-buttons">
-      <button class="start">Start Game</button>
-      <button type="button" id="reset">Reset</button>
-      <h3>
-        You've been on this level for <span id="seconds"></span> seconds
-      </h3>
-    </div>
-  </nav>
-
-  <main>
-    <!-- Users select difficulty here -->
-    <div class="menu">
-      <p>Select a level:</p>
-      <button type="button" class="level" id="easy">Easy</button>
-      <button type="button" class="level" id="hard">Hard</button>
-    </div>
-    <!-- Users play the game here -->
-    <div id="gameboard"></div>
-    <div id="game-over">
-      <div id="gameOverMenu">
-        <h1 id='gameOverText'>Game Over</h1>
-        <h2 id='timerText'>You have been on this game for: <span id="seconds"></span> seconds. </h2>
-        <button id="returnBack">Back to Main Menu</button>
+  <body>
+    <nav>
+      <h1>Flip Card Game</h1>
+      <div class="header-buttons">
+        <button class="start">Start Game</button>
+        <button type="button" id="reset">Reset</button>
+        <h3>
+          You've been on this level for <span id="seconds"></span> seconds
+        </h3>
       </div>
-    </div>
-  </main>
+    </nav>
 
-  <script src="MC.js"></script>
-</body>
+    <main>
+      <!-- Users select difficulty here -->
+      <div class="menu">
+        <p>Select a level:</p>
+        <button type="button" class="level" id="easy">Easy</button>
+        <button type="button" class="level" id="hard">Hard</button>
+      </div>
+      <!-- Users play the game here -->
+      <div id="gameboard"></div>
+      <div id="game-over">
+        <div id="gameOverMenu">
+          <h1 id="gameOverText">Game Over</h1>
+          <h2 id="timerText">
+            You have been on this game for: <span id="seconds"></span> seconds.
+          </h2>
+          <button id="returnBack">Back to Main Menu</button>
+        </div>
+      </div>
+    </main>
 
+    <script src="MC.js"></script>
+  </body>
 </html>

@@ -75,7 +75,8 @@ button {
   backface-visibility: hidden;
 }
 
-.front {}
+.front {
+}
 
 .back {
   transform: rotateY(180deg);
@@ -121,7 +122,6 @@ button.level {
 }
 
 #game-over {
-
   height: 35%;
   width: 45%;
   background-color: black;
