@@ -10,8 +10,7 @@
   let level;
   let startTimer = null;
   let count = 0;
-  let isEasy = false;
-  let allFlippedCards = [];
+
   const resetButton = document.querySelector("#reset");
   const easyLevelbtn = document.querySelector("#easy");
   const hardLevelbtn = document.querySelector("#hard");
@@ -19,6 +18,8 @@
   const startButton = document.querySelector(".start");
   //find menu
   const levelMenu = document.querySelector(".menu");
+  //find end game screen
+  const gameOver = document.querySelector("#game-over");
   //find header buttons
   const headerButtons = document.querySelector(".header-buttons");
   const seconds = document.querySelector("#seconds");
@@ -157,11 +158,6 @@
   });
 
   function cardClickListener() {
-    if (cards.length === 0) {
-      clearTimer();
-      window.alert("Game Over");
-    }
-
     //check if a card is clicked
     if (event.target.className === "front") {
       //store data-card value of clicked card in a variable
@@ -176,8 +172,10 @@
         previouslyClickedCard !== null &&
         newClickedCard === previouslyClickedCard
       ) {
+        //both variables have a click value- remove event listener
         board.removeEventListener("click", cardClickListener);
-        console.log("match");
+        //add a class to border color flash or something
+        //initiate timeout, which removes matched cards in sync after 1.5sec
         setTimeout(function () {
           //remove cards from array
           cards = cards.filter((card) => card.type !== newClickedCard);
@@ -186,48 +184,57 @@
           let cardsToRemove = document.querySelectorAll(`.${newClickedCard}`);
           // remove each card from cardsToRemove array
           for (card of cardsToRemove) {
-            console.log(cardsToRemove);
-            allFlippedCards.push(card);
+            // allFlippedCards.push(card);
             card.remove();
-            if (allFlippedCards.length === 8 && isEasy === true) {
-              console.log(allFlippedCards.length);
-              gameOver.style.display = "flex";
-              seconds.innerHTML = count;
-            } else if (allFlippedCards.length === 16 && isEasy === false) {
-              console.log(allFlippedCards.length);
-              gameOver.style.display = "flex";
-              seconds.innerHTML = count;
-            }
+            // if (allFlippedCards.length === 8 && isEasy === true) {
+            //   console.log(allFlippedCards.length);
+            // } else if (allFlippedCards.length === 16 && isEasy === false) {
+            //   console.log(allFlippedCards.length);
+            //   gameOver.style.display = "flex";
+            //   seconds.innerHTML = count;
+            // }
           }
+          //reset variables to null
           previouslyClickedCard = null;
           newClickedCard = null;
+          if (cards.length === 0) {
+            clearTimer();
+            //window.alert("Game Over");
+            gameOver.style.display = "flex";
+            seconds.innerHTML = count;
+          }
+          //add event listener back on
           board.addEventListener("click", cardClickListener);
         }, 1500);
       }
       //if no match and two clicks
       else if (previouslyClickedCard !== null) {
+        // remove event listener so cannot click additional cards
         board.removeEventListener("click", cardClickListener);
+        //initiate timeout, so after 1.5sec cards that do not match flip back over together
         setTimeout(function () {
-          // if card type values do not match, remove class flipped from cards
+          // if card type values do not match, put the flipped cards into an array
           let flippedCards = document.querySelectorAll(".flipped");
-
+          //remove class flipped from the cards in flippedCards array
           for (card of flippedCards) {
             card.classList.remove("flipped");
           }
+          //reset variables to null
           previouslyClickedCard = null;
           newClickedCard = null;
+          //add event listener back on
           board.addEventListener("click", cardClickListener);
         }, 1500);
       }
+      //if first run, shift variable value
       if (previouslyClickedCard === null) {
         previouslyClickedCard = newClickedCard;
       }
     }
   }
 
+  //adds event listener, and calls function that runs flip/match logic
   board.addEventListener("click", cardClickListener);
-
-  //  board.addEventListener("click", clickListener);
 
   backToMenu.addEventListener("click", () => {
     gameOver.style.display = "none";
