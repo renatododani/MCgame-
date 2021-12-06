@@ -3,6 +3,10 @@
   color: white;
 }
 
+audio {
+  display: none;
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -132,6 +136,7 @@ button.level {
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
   align-items: center;
+  justify-content: center;
   margin-bottom: 28%;
   display: none;
 }

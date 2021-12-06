@@ -24,6 +24,8 @@
   const headerButtons = document.querySelector(".header-buttons");
   const seconds = document.querySelector("#seconds");
   const backToMenu = document.querySelector("#returnBack");
+  // find audio container
+  const audioContainer = document.querySelector("#audio-container");
 
   // function to make cards
   function makeCard(img, cardType) {
@@ -47,6 +49,17 @@
       </div>
   `;
     }
+  }
+  function startAudio() {
+    audioContainer.innerHTML += `<audio
+      autoplay
+      loop
+      src="./MCImgs/MC-suspense.mp3"
+      type="audio/mpeg"
+    ></audio>`;
+  }
+  function stopAudio() {
+    audioContainer.innerHTML = ` `;
   }
 
   function resetBoardHard() {
@@ -84,6 +97,7 @@
       return a.sortOrder - b.sortOrder;
     });
     creatHTMLCards();
+    startAudio();
   }
 
   function resetBoardEasy() {
@@ -113,6 +127,7 @@
       return a.sortOrder - b.sortOrder;
     });
     creatHTMLCards();
+    startAudio();
   }
 
   startButton.addEventListener("click", (event) => {
@@ -202,6 +217,7 @@
             //window.alert("Game Over");
             gameOver.style.display = "flex";
             seconds.innerHTML = count;
+            stopAudio();
           }
           //add event listener back on
           board.addEventListener("click", cardClickListener);
@@ -238,10 +254,11 @@
 
   backToMenu.addEventListener("click", () => {
     gameOver.style.display = "none";
+    board.style.display = "none";
     levelMenu.style.display = "flex";
     levelMenu.style.flexDirection = "column";
     levelMenu.style.justifyContent = "center";
     levelMenu.style.alignItems = "center";
-    levelMenu.style.marginLeft = "30%";
+    //levelMenu.style.marginLeft = "30%";
   });
 })();

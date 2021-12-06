@@ -17,24 +17,27 @@
   <body>
     <nav>
       <h1>Flip Card Game</h1>
+      <!--Users play game here-->
       <div class="header-buttons">
         <button class="start">Start Game</button>
         <button type="button" id="reset">Reset</button>
+        <button type="button" id="returnBack">Back to Main Menu</button>
         <h3>
           You've been on this level for <span id="seconds"></span> seconds
         </h3>
       </div>
     </nav>
 
-    <main>
+    <main id="game-container">
       <!-- Users select difficulty here -->
       <div class="menu">
         <p>Select a level:</p>
         <button type="button" class="level" id="easy">Easy</button>
         <button type="button" class="level" id="hard">Hard</button>
       </div>
-      <!-- Users play the game here -->
+      <!-- actual game board -->
       <div id="gameboard"></div>
+      <!-- Game end screen -->
       <div id="game-over">
         <div id="gameOverMenu">
           <h1 id="gameOverText">Game Over</h1>
@@ -44,6 +47,7 @@
           <button id="returnBack">Back to Main Menu</button>
         </div>
       </div>
+      <div style="display: none" id="audio-container"></div>
     </main>
 
     <script src="MC.js"></script>
