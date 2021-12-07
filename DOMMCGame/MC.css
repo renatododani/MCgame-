@@ -13,6 +13,10 @@ body {
   width: 100vw;
 }
 
+body, html {
+  height: 100%;
+}
+
 div.header-buttons {
   display: none;
 }
@@ -25,15 +29,18 @@ main {
   align-items: center;
   background-color: #171717;
   background-image: url("MCImgs/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #gameboard {
   display: none;
   grid-template-columns: repeat(4, 1fr);
-  width: 50%;
+  /*width: 50%;*/
   padding: 0;
   grid-auto-rows: minmax(100px, auto);
   grid-gap: 10px;
+  margin: 15%;
 }
 
 nav {
@@ -123,6 +130,10 @@ button.level {
   button.level {
     width: 10vw;
   }
+
+  #gameboard {    
+    width: 100%;
+    }
 }
 
 #game-over {
