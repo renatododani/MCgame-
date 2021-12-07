@@ -10,7 +10,7 @@
   let level;
   let startTimer = null;
   let count = 0;
-
+  const navTimer = document.querySelector('h3');
   const resetButton = document.querySelector("#reset");
   const easyLevelbtn = document.querySelector("#easy");
   const hardLevelbtn = document.querySelector("#hard");
@@ -23,6 +23,7 @@
   //find header buttons
   const headerButtons = document.querySelector(".header-buttons");
   const seconds = document.querySelector("#seconds");
+  const totalSeconds = document.querySelector("#total-seconds")
   const backToMenu = document.querySelector("#returnBack");
   // find audio container
   const audioContainer = document.querySelector("#audio-container");
@@ -143,7 +144,7 @@
   // will stop timer
   function clearTimer() {
     clearInterval(startTimer);
-    count === 0;
+    count = 0;
   }
 
   // calls reset board easy function when easy button is clicked
@@ -213,10 +214,11 @@
           previouslyClickedCard = null;
           newClickedCard = null;
           if (cards.length === 0) {
+            totalSeconds.innerHTML = count;
+            navTimer.style.display = 'none';
             clearTimer();
             //window.alert("Game Over");
             gameOver.style.display = "flex";
-            seconds.innerHTML = count;
             stopAudio();
           }
           //add event listener back on
