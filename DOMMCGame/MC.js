@@ -132,6 +132,7 @@
   }
 
   startButton.addEventListener("click", (event) => {
+    navTimer.style.visibility = 'visible';
     //will start timer
     if (count === 0) {
       startTimer = setInterval(function () {
@@ -215,7 +216,7 @@
           newClickedCard = null;
           if (cards.length === 0) {
             totalSeconds.innerHTML = count;
-            navTimer.style.display = 'none';
+            navTimer.style.visibility = 'hidden';
             clearTimer();
             //window.alert("Game Over");
             gameOver.style.display = "flex";
