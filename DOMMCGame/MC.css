@@ -15,6 +15,7 @@ body {
 
 body, html {
   height: 100%;
+  overflow-x: hidden;
 }
 
 div.header-buttons {
@@ -31,6 +32,7 @@ main {
   background-image: url("MCImgs/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 
 #gameboard {
