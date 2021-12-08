@@ -10,7 +10,7 @@ Memory Card Game
 
 ## Theme
 
-True Crime: we went with true crime because it was something we were all interested in (except poor Renato, he was just stuck with us)
+True Crime: we went with true crime because it was something we were all interested in.
 
 ## Languages
 
