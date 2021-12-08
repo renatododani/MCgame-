@@ -10,7 +10,7 @@
   let level;
   let startTimer = null;
   let count = 0;
-  const navTimer = document.querySelector('h3');
+  const navTimer = document.querySelector("h3");
   const resetButton = document.querySelector("#reset");
   const easyLevelbtn = document.querySelector("#easy");
   const hardLevelbtn = document.querySelector("#hard");
@@ -18,12 +18,14 @@
   const startButton = document.querySelector(".start");
   //find menu
   const levelMenu = document.querySelector(".menu");
+  //find gray overlay
+  const boardMask = document.querySelector(".board-mask");
   //find end game screen
   const gameOver = document.querySelector("#game-over");
   //find header buttons
   const headerButtons = document.querySelector(".header-buttons");
   const seconds = document.querySelector("#seconds");
-  const totalSeconds = document.querySelector("#total-seconds")
+  const totalSeconds = document.querySelector("#total-seconds");
   const backToMenu = document.querySelector("#returnBack");
   // find audio container
   const audioContainer = document.querySelector("#audio-container");
@@ -68,6 +70,7 @@
     level = "hard";
     //hide menu
     levelMenu.style.display = "none";
+    boardMask.style.display = "flex";
     //show game board on button click
     board.style.display = "grid";
     //show header buttons on click
@@ -106,6 +109,7 @@
     level = "easy";
     //hide menu
     levelMenu.style.display = "none";
+    boardMask.style.display = "flex";
     //display game board on click
     board.style.display = "grid";
     //show header buttons on click
@@ -132,7 +136,7 @@
   }
 
   startButton.addEventListener("click", (event) => {
-    navTimer.style.visibility = 'visible';
+    navTimer.style.visibility = "visible";
     //will start timer
     if (count === 0) {
       startTimer = setInterval(function () {
@@ -140,6 +144,7 @@
         count++;
       }, 1000);
     }
+    boardMask.style.display = "none";
   });
 
   // will stop timer
@@ -216,11 +221,12 @@
           newClickedCard = null;
           if (cards.length === 0) {
             totalSeconds.innerHTML = count;
-            navTimer.style.visibility = 'hidden';
+            navTimer.style.visibility = "hidden";
             clearTimer();
             //window.alert("Game Over");
             gameOver.style.display = "flex";
             stopAudio();
+            resetButton.style.display = "none";
           }
           //add event listener back on
           board.addEventListener("click", cardClickListener);
@@ -257,7 +263,9 @@
 
   backToMenu.addEventListener("click", () => {
     gameOver.style.display = "none";
+    boardMask.style.display = "none";
     board.style.display = "none";
+    resetButton.style.display = "none";
     levelMenu.style.display = "flex";
     levelMenu.style.flexDirection = "column";
     levelMenu.style.justifyContent = "center";

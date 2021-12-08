@@ -17,9 +17,7 @@
   <body>
     <nav>
       <h1>Flip Card Game</h1>
-      <!--Users play game here-->
       <div class="header-buttons">
-        <button class="start">Start Game</button>
         <button type="button" id="reset">Reset</button>
         <h3>
           You've been on this level for <span id="seconds"></span> seconds
@@ -35,18 +33,24 @@
         <button type="button" class="level" id="hard">Hard</button>
       </div>
       <!-- actual game board -->
-      <div id="gameboard"></div>
+      <div id="game-container">
+        <div id="gameboard"></div>
+      </div>
       <!-- Game end screen -->
       <div id="game-over">
         <div id="gameOverMenu">
           <h1 id="gameOverText">Game Over</h1>
           <h2 id="timerText">
-            You have been on this game for: <span id="total-seconds"></span> seconds.
+            You have been on this game for:
+            <span id="total-seconds"></span> seconds.
           </h2>
           <button type="button" id="returnBack">Back to Main Menu</button>
         </div>
       </div>
       <div style="display: none" id="audio-container"></div>
+      <div class="board-mask">
+        <button class="start">Start Game</button>
+      </div>
     </main>
 
     <script src="MC.js"></script>
