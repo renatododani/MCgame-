@@ -16,11 +16,11 @@ HTML, CSS, And JavaScript
 
 ## Instructions
 
-[JavaScriptProject.pdf](MCImgs/JavaScriptProject.pdf)
+[JavaScriptProject.pdf](DOMMCGame/MCImgs/JavaScriptProject.pdf)
 
 ## Screenshots
 
-![Beginning](MCImgs/beginning.PNG)
-![Easy Level](MCImgs/easy.PNG)
-![Hard Level](MCImgs/hard.PNG)
-![End](MCImgs/end.PNG)
+![Beginning](DOMMCGame/MCImgs/beginning.PNG)
+![Easy Level](DOMMCGame/MCImgs/easy.PNG)
+![Hard Level](DOMMCGame/MCImgs/hard.PNG)
+![End](DOMMCGame/MCImgs/end.PNG)
